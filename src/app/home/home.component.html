@@ -1,1 +1,23 @@
-<p>home works!</p>
+<section class="section">
+    <div class="container">
+        <h1 class="title">Búsqueda de Canciones</h1>
+        <h2 class="subtitle">Encuentra aquí tu canción favorita</h2>
+        <div class="field">
+            <label>Escriba el artista</label>
+            <div class="control">
+                <input class="input" type="text" #artist placeholder="Ej. Chayanne">
+            </div>
+        </div>
+        <div class="field">
+            <label>Escriba el título de la canción</label>
+            <div class="control">
+                <input type="text" class="input" #song placeholder="Ej. Torero">
+            </div>
+        </div>
+        <div class="field mt-5">
+            <button (click)="getSong(artist.value, song.value)" class="button is-primary is-rounded">Buscar</button>
+        </div>
+
+        <p *ngIf="laLetra" style="white-space: pre-line;" class="mt-6">{{laLetra.lyrics}}</p>
+    </div>
+</section>

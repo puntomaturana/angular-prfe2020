@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LyricsService } from '../services/lyrics.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  laLetra: any;
+  constructor(private songService: LyricsService) { }
 
   ngOnInit(): void {
+  }
+
+  getSong(artist, song) {
+    //console.log('Quiero buscar ' + artist + '  y la canción ' + song);
+    this.songService.getSong(artist, song).subscribe(lyrics => this.laLetra = lyrics);
   }
 
 }
